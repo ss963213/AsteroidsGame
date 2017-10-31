@@ -1,10 +1,9 @@
-//your variable declarations here
+Spaceship Scott;
 public void setup() 
 {
-  //your code here
+  size(800,800);
 }
 public void draw() 
 {
   //your code here
 }
-
