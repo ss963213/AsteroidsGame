@@ -1,11 +1,15 @@
 Spaceship Scott;
 Stars[] He;
+Asteroid[]Lulzees;
 public void setup() 
 {Scott=new Spaceship();
   size(800,800);
   He=new Stars[200];
+  Lulzees=new Asteroid[50];
   for(int i=0; i<He.length;i++)
   {He[i]=new Stars();}
+  for(int i=0; i<Lulzees.length;i++)
+  {Lulzees[i]=new Asteroid();}
 }
 public void draw() 
 {
@@ -14,6 +18,9 @@ public void draw()
   Scott.move();
 for(int i=0; i<He.length;i++)
   {He[i].show();}
+  for(int i=0; i<Lulzees.length;i++)
+  {Lulzees[i].show();
+Lulzees[i].move();}
 }
 public void keyPressed(){
   if (key=='w'){Scott.accelerate(0.5);}
