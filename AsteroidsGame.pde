@@ -1,5 +1,6 @@
 Spaceship Scott;
 Stars[] He;
+ArrayList <Bullet> Scooter=new ArrayList<Bullet>();
 ArrayList <Asteroid> Lulzees = new ArrayList<Asteroid>();
 public void setup() 
 {Scott=new Spaceship();
@@ -22,6 +23,17 @@ for(int i=0; i<He.length;i++)
 Lulzees.get(i).move();
 if(dist(Scott.getX(),Scott.getY(),Lulzees.get(i).getX(),Lulzees.get(i).getY())<20)
 Lulzees.remove(i);}
+for(int i=0;i<Scooter.size();i++)
+{
+ Scooter.get(i).show();
+ Scooter.get(i).move();
+ for(int j=0;j<Lulzees.size();j++){
+  if(dist(Scooter.get(i).getX(),Scooter.get(i).getY(),Lulzees.get(j).getX(),Lulzees.get(j).getY())<5)
+  {Scooter.remove(i);
+  Lulzees.remove(j);
+  break;}
+ }
+}
 }
 public void keyPressed(){
   if (key=='w'){Scott.accelerate(0.5);}
@@ -33,4 +45,7 @@ Scott.setY((int)(Math.random()*800));
 Scott.setDirectionX(0);
 Scott.setDirectionY(0);
 Scott.setPointDirection((int)(Math.random()*360));}
+if(key==' '){
+  Scooter.add(new Bullet(Scott));
+}
 }

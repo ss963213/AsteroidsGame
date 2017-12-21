@@ -9,11 +9,18 @@ public void setDirectionY(double y){myDirectionY=y;}
 public double getDirectionY(){return myDirectionY;}   
 public void setPointDirection(int degrees){myPointDirection=degrees;}   
 public double getPointDirection(){return myPointDirection;} 
+
   public Bullet(Spaceship theShip){
-    myCenterX=400;
-  myCenterY=400;
-  myDirectionX=0;
-  myDirectionY=0;
-  myPointDirection=0;
+  myCenterX = theShip.getX();
+  myCenterY = theShip.getY();
+  myPointDirection=theShip.getPointDirection();
+  double dRadians =myPointDirection*(Math.PI/180);
+  myDirectionX=5 * Math.cos(dRadians)+theShip.getDirectionX();
+  myDirectionY= 5 * Math.sin(dRadians)+theShip.getDirectionY();
+  }
+  public void show(){
+    fill(255);
+    noStroke();
+   ellipse(getX(),getY(),5,5);
   }
 }
